@@ -1,0 +1,13 @@
+version: "3"
+services:
+  tomcat:
+    image: tomcat:8.5-slim
+    container_name: mytomcat
+    volumes:
+      - ./config/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - ./config/manager-context.xml:/usr/local/tomcat/webapps/manager/META-INF/context.xml
+      - ./config/manager-web.xml:/usr/local/tomcat/webapps/manager/WEB-INF/web.xml
+    environment:
+      - TZ=Asia/Taipei
+    ports:
+      - "80:8080"
